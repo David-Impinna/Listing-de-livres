@@ -1,0 +1,65 @@
+{% extends "base.html.twig" %}
+
+{% block titre %} Page listant les livres{% endblock %}
+{% block contenu %} 
+{% if message|length >0 %}
+    <div class="alert alert-{{message.type}}" role="alert">
+        {{message.contenu}}
+    </div>
+{% endif %}
+   <table class="table text-center monTableau" id="tableauLivres">
+        <thead>
+            <tr class="table-dark">
+                <th>Images</th>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Nombre de pages</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for livre in liste %}
+                <tr>
+                    <td class="align-middle"><img src="images/{{livre.image}}" width="60px"></td>
+                    <td class="align-middle"><a href="/livres/{{livre._id}}">{{livre.nom}}</a></td>
+                    <td class="align-middle">{{livre.auteur}}</td>
+                    <td class="align-middle">{{livre.pages}}</td>
+                    <td class="align-middle"><a href="/livres/modification/{{livre._id}}" class="btn btn-warning">Modifier</a></td>
+                    <td class="align-middle">
+                        <form method="POST" action="/livres/delete/{{livre._id}}" onSubmit= "return confirm('Voulez-vous vraiment supprimer le livre ?');">
+                            <button class="btn btn-danger" type="submit">Supprimer </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button class="btn btn-success w-100" onClick="afficherFormulaire()">Ajouter</button>
+    <form id="ajoutForm" class="d-none" method = "POST" action="" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Création d'un livre</legend>
+            <div class="form-group">
+                <label for="titre">Titre</label>
+                <input type="text" class="form-control" id="titre" name="titre">
+            </div>
+            <div class="form-group">
+                <label for="auteur">Auteur</label>
+                <input type="text" class="form-control" id="auteur" name="auteur">
+            </div>
+            <div class="form-group">
+                <label for="pages">Pages</label>
+                <input type="number" class="form-control" id="pages" name="pages">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            <button class="btn btn-primary" type="submit">Valider</button>
+        </fieldset>
+    </form>
+    <script src="/javascript/ajoutLivre.js"></script>
+{% endblock %}

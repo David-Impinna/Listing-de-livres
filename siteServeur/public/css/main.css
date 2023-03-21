@@ -1,0 +1,13 @@
+body {
+    min-height: 100vh;
+    background: linear-gradient(to right, #8eb5b7, #5e7275);
+    padding: clamp(20px, 5vw, 50px) 10px 10px;
+  }
+
+.p_bgColorBlue{
+    background-color: rgb(105, 177, 211);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sigmar One', cursive;
+}

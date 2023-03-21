@@ -1,0 +1,53 @@
+/* *{
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(29, 114, 163);
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 30px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+
+div{
+    margin: auto;
+    width: 50%;
+    background-color: rgb(29, 114, 163);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px 0;
+}
+
+div h1{
+    color: white;
+} */
+
+body{
+  background-color: rgb(94, 94, 94);
+}
+
+.p_bgColorBlue{
+  background-color: rgb(103,172,218);
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Sigmar One', cursive;
+}
